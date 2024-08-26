@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity GitlabContributionMatrix.
+    -->
+    <changeSet id="20240826102329-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="resource_id"
+                                 baseTableName="gitlab_contribution_matrix"
+                                 constraintName="fk_gitlab_contribution_matrix__resource_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resource"/>
+    </changeSet>
+</databaseChangeLog>

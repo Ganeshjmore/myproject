@@ -1,0 +1,86 @@
+entity Manager {
+  name String required,
+  email String required
+}
+
+entity Resource {
+  name String required,
+  email String required,
+  gpin String required,
+  role String required
+}
+
+entity Objective {
+  title String required,
+  description String required,
+  createdAt Instant required,
+  status ObjectiveStatus required
+}
+
+entity Comment {
+  text TextBlob required,
+  createdAt Instant required
+}
+
+entity Rating {
+  score Integer required min(1) max(5),
+  level RatingLevel required,
+  ratedAt Instant required
+}
+
+entity ProductionRelease {
+  title String required,
+  description String required,
+  releaseDate Instant required,
+  application String required
+}
+
+entity KudosPoint {
+  givenBy String required,
+  comments TextBlob,
+  points Integer required,
+  category String required
+}
+
+entity GitlabContributionMatrix {
+  totalCommits Integer required,
+  mergeRequests Integer required,
+  issuesClosed Integer required,
+  codeReviews Integer required,
+  lastUpdated Instant required
+}
+
+enum ObjectiveStatus {
+  PENDING,
+  IN_PROGRESS,
+  COMPLETED,
+  REVIEWED
+}
+
+enum RatingLevel {
+  LOW,
+  MEDIUM,
+  HIGH,
+  EXCELLENT
+}
+
+relationship OneToMany {
+  Manager{resources} to Resource{manager}
+  Resource{objectives} to Objective{resource}
+  Objective{comments} to Comment{objective}
+  Objective{ratings} to Rating{objective}
+  Resource{productionReleases} to ProductionRelease{resource}
+  Resource{kudosPoints} to KudosPoint{resource}
+  Resource{gitlabContributions} to GitlabContributionMatrix{resource}
+}
+
+relationship ManyToOne {
+  Comment{resource} to Resource
+  Rating{resource} to Resource
+}
+
+paginate Resource, Objective, Comment, Rating, ProductionRelease, KudosPoint, GitlabContributionMatrix with pagination
+
+dto * with mapstruct
+
+service all with serviceImpl

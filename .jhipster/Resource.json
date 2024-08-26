@@ -1,0 +1,67 @@
+{
+  "applications": "*",
+  "changelogDate": "20240826102323",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "resource",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gpin",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "role",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Resource",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "objective",
+      "otherEntityRelationshipName": "resource",
+      "relationshipName": "objectives",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "productionRelease",
+      "otherEntityRelationshipName": "resource",
+      "relationshipName": "productionReleases",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "kudosPoint",
+      "otherEntityRelationshipName": "resource",
+      "relationshipName": "kudosPoints",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "gitlabContributionMatrix",
+      "otherEntityRelationshipName": "resource",
+      "relationshipName": "gitlabContributions",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "manager",
+      "otherEntityRelationshipName": "resources",
+      "relationshipName": "manager",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

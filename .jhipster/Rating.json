@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20240826102326",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "rating",
+  "fields": [
+    {
+      "fieldName": "score",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min", "max"],
+      "fieldValidateRulesMax": "5",
+      "fieldValidateRulesMin": "1"
+    },
+    {
+      "fieldName": "level",
+      "fieldType": "RatingLevel",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "LOW,MEDIUM,HIGH,EXCELLENT"
+    },
+    {
+      "fieldName": "ratedAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Rating",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resource",
+      "otherEntityRelationshipName": "rating",
+      "relationshipName": "resource",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "objective",
+      "otherEntityRelationshipName": "ratings",
+      "relationshipName": "objective",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
