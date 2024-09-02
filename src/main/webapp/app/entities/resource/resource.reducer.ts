@@ -24,6 +24,11 @@ export const getEntities = createAsyncThunk('resource/fetch_entity_list', async 
   return axios.get<IResource[]>(requestUrl);
 });
 
+export const getAllEntities = createAsyncThunk('resource/fetch_entity_list',  async ({ page, size, sort }: IQueryParams) => {
+  const requestUrl = `${apiUrl}$cacheBuster=${new Date().getTime()}`;
+  return axios.get<IResource[]>(requestUrl);
+});
+
 export const getEntity = createAsyncThunk(
   'resource/fetch_entity',
   async (id: string | number) => {

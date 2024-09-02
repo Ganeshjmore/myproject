@@ -45,7 +45,7 @@ export const ObjectiveDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{objectiveEntity.status}</dd>
           <dt>Resource</dt>
-          <dd>{objectiveEntity.resource ? objectiveEntity.resource.id : ''}</dd>
+          <dd>{objectiveEntity.resource ? objectiveEntity.resource.name : ''}</dd>
         </dl>
         <Button tag={Link} to="/objective" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>

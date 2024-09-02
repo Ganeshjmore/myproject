@@ -96,8 +96,7 @@ module.exports = async options =>
         }
       ),
       new WebpackNotifierPlugin({
-        title: 'Manager Dashboard',
-        contentImage: path.join(__dirname, 'logo-jhipster.png'),
+        title: 'Manager Dashboard'
       }),
     ].filter(Boolean),
   });

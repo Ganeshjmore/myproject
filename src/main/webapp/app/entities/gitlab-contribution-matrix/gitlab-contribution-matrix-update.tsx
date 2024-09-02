@@ -151,7 +151,7 @@ export const GitlabContributionMatrixUpdate = (props: RouteComponentProps<{ id: 
                 {resources
                   ? resources.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.name}
                       </option>
                     ))
                   : null}

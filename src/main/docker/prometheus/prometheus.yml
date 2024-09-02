@@ -20,7 +20,6 @@ scrape_configs:
 
     # scheme defaults to 'http' enable https in case your application is server via https
     #scheme: https
-    # basic auth is not needed by default. See https://www.jhipster.tech/monitoring/#configuring-metrics-forwarding for details
     #basic_auth:
     # username: admin
     # password: admin

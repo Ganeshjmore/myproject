@@ -6,7 +6,6 @@ import rating from 'app/entities/rating/rating.reducer';
 import productionRelease from 'app/entities/production-release/production-release.reducer';
 import kudosPoint from 'app/entities/kudos-point/kudos-point.reducer';
 import gitlabContributionMatrix from 'app/entities/gitlab-contribution-matrix/gitlab-contribution-matrix.reducer';
-/* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
   manager,
@@ -17,7 +16,6 @@ const entitiesReducers = {
   productionRelease,
   kudosPoint,
   gitlabContributionMatrix,
-  /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 
 export default entitiesReducers;

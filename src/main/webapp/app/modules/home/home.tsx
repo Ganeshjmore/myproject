@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Alert } from 'reactstrap';
 import { useAppSelector } from 'app/config/store';
+import ResourceSelection from "../charts/resourceSelection"
 
 export const Home = () => {
   const account = useAppSelector(state => state.authentication.account);
@@ -17,6 +18,7 @@ export const Home = () => {
         {account?.login ? (
           <div>
             <Alert color="success">Welcome {account.login} !</Alert>
+            <ResourceSelection></ResourceSelection>
           </div>
         ) : (
           <div>

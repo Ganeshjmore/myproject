@@ -132,7 +132,7 @@ export const Objective = (props: RouteComponentProps<{ url: string }>) => {
                   <td>{objective.description}</td>
                   <td>{objective.createdAt ? <TextFormat type="date" value={objective.createdAt} format={APP_DATE_FORMAT} /> : null}</td>
                   <td>{objective.status}</td>
-                  <td>{objective.resource ? <Link to={`/resource/${objective.resource.id}`}>{objective.resource.id}</Link> : ''}</td>
+                  <td>{objective.resource ? <Link to={`/resource/${objective.resource.id}`}>{objective.resource.name}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/objective/${objective.id}`} color="info" size="sm" data-cy="entityDetailsButton">

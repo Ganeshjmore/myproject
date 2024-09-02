@@ -132,7 +132,7 @@ export const ObjectiveUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 {resources
                   ? resources.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.name}
                       </option>
                     ))
                   : null}
