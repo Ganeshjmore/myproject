@@ -2,21 +2,27 @@ import React, { useEffect, useState} from 'react'
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import {getEntities} from 'app/entities/resource/resource.reducer';
 import ChartComponent from './ChartComponent';
+import { getEntities as objectives } from 'app/entities/objective/objective.reducer';
 
 export default function resourceSelection() {
   const dispatch = useAppDispatch();
 
+  const [selectedResource, setSelectedResource] = useState("");
   useEffect(() => {
     dispatch(getEntities({}));
   }, []);
 
-  const [selectedResource, setSelectedResource] = useState("");
+  useEffect(() => {
+    dispatch(objectives({}));
+    
+  }, [selectedResource]);
 
   const resourceList = useAppSelector(state => state.resource.entities);
+  const objective = useAppSelector(state => state.objective.entities);
 
   function onChangeResource (e){
     setSelectedResource(e.target.value)
-  }
+   }
 
   return (
     <div>
@@ -47,8 +53,10 @@ export default function resourceSelection() {
       </td>
     </tr>
    </table>
-   {selectedResource !== "" && <ChartComponent title="Weekly Sales Data" selectedResource = {selectedResource}></ChartComponent>}
-   
+   {selectedResource !== "" && objective &&
+    <ChartComponent title="Ratings Score" selectedResource = {selectedResource} objective = {objective}/>
+      }
+
     </div>
   )
 }
